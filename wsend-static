@@ -1,0 +1,15 @@
+#!/bin/bash
+system=$(uname)
+cp $1 /tmp/$1
+assets=$(find . -type f | sed 's|./||' | grep -v '^\.$')
+while read file; do
+  link=$(~/.wsend/wsend $file)
+  if [[ "$system" == "Darwin" ]]; then
+    sed -i "" "s|$file|$link|g" /tmp/$1
+  else
+    sed -i "s|$file|$link|g" /tmp/$1
+  fi
+done < <(echo "$assets")
+~/.wsend/wsend /tmp/$1
+rm "/tmp/$1"
+
