@@ -7,7 +7,7 @@ Show a static site on wsend
 
      git clone https://github.com/abemassry/wsend-static.git
      cd wsend-static/
-     alias wsend-link="$PWD/wsend-link"
+     alias wsend-static="$PWD/wsend-static"
 
 # Usage
 
